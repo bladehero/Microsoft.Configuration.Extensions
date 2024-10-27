@@ -1,4 +1,4 @@
-name: Format Validation
+name: Check Formatting
 on:
   pull_request:
     branches: [ main ]
