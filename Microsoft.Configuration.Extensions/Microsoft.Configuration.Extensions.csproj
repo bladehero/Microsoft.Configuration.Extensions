@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Microsoft.Configuration.Extensions</PackageId>
@@ -9,6 +9,7 @@
         <Authors>bladehero</Authors>
         <PackageDescription>Custom Configuration Extensions</PackageDescription>
         <RepositoryUrl>https://github.com/bladehero/Microsoft.Configuration.Extensions</RepositoryUrl>
+        <LangVersion>latest</LangVersion>
     </PropertyGroup>
 
     <ItemGroup>
