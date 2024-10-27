@@ -28,6 +28,4 @@ jobs:
         run: dotnet pack --configuration Release --no-build -o ./out
 
       - name: Publish to NuGet
-        env:
-          NUGET_API_KEY: ${{ secrets.GH_PAT }}
-        run: dotnet nuget push ./out/*.nupkg --api-key $NUGET_API_KEY --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push ./out/*.nupkg --api-key ${{ secrets.GH_PAT }} --source "https://nuget.pkg.github.com/bladehero/index.json"
