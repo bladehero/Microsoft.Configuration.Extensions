@@ -15,9 +15,6 @@ public static class ConfigurationExtensions
     public static T? GetSectionAs<T>(this IConfiguration configuration, string? sectionName = null) =>
         configuration.GetSection(sectionName ?? typeof(T).Name).Get<T>();
 
-    public static object? GetSectionByType(
-        this IConfiguration configuration,
-        Type type,
-        string sectionName
-    ) => configuration.GetSection(sectionName).Get(type);
+    public static object? GetSectionByType(this IConfiguration configuration, Type type, string sectionName) =>
+        configuration.GetSection(sectionName).Get(type);
 }
