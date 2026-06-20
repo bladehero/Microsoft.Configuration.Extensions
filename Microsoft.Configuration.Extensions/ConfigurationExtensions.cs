@@ -1,6 +1,7 @@
 using System.Reflection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace Microsoft.Configuration.Extensions;
 
@@ -14,12 +15,30 @@ public static class ConfigurationExtensions
         null
     )!;
 
+    public static IServiceCollection AddConfiguration<T>(this IHostApplicationBuilder builder, string? name = null)
+        where T : class
+    {
+        return builder.Services.AddConfiguration<T>(builder.Configuration, name);
+    }
+
+    public static IServiceCollection AddConfiguration(
+        this IHostApplicationBuilder builder,
+        Type type,
+        string? name = null
+    )
+    {
+        return builder.Services.AddConfiguration(type, builder.Configuration, name);
+    }
+
     public static IServiceCollection AddConfiguration<T>(
         this IServiceCollection services,
         IConfiguration configuration,
         string? name = null
     )
-        where T : class => services.Configure<T>(configuration.GetSection(name ?? typeof(T).Name));
+        where T : class
+    {
+        return services.Configure<T>(configuration.GetSection(name ?? typeof(T).Name));
+    }
 
     public static IServiceCollection AddConfiguration(
         this IServiceCollection services,
