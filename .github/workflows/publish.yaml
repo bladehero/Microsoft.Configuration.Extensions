@@ -11,7 +11,9 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -28,4 +30,4 @@ jobs:
         run: dotnet pack --configuration Release --no-build -o ./out
 
       - name: Publish to NuGet
-        run: dotnet nuget push ./out/*.nupkg --api-key ${{ secrets.GH_PAT }} --source "https://nuget.pkg.github.com/bladehero/index.json"
+        run: dotnet nuget push ./out/*.nupkg --api-key ${{ secrets.GH_PAT }} --source "https://nuget.pkg.github.com/bladehero/index.json" --skip-duplicate
