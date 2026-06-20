@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>Microsoft.Configuration.Extensions</PackageId>
-        <MinVerTagPrefix>v</MinVerTagPrefix>
         <Authors>bladehero</Authors>
         <PackageDescription>Custom Configuration Extensions</PackageDescription>
         <RepositoryUrl>https://github.com/bladehero/Microsoft.Configuration.Extensions</RepositoryUrl>
@@ -17,9 +16,5 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.9" />
       <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.9" />
       <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.9" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="MinVer" Version="7.0.0" PrivateAssets="all" />
     </ItemGroup>
 </Project>
