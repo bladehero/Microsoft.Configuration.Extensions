@@ -15,19 +15,21 @@ public static class ConfigurationExtensions
         null
     )!;
 
-    public static IServiceCollection AddConfiguration<T>(this IHostApplicationBuilder builder, string? name = null)
+    public static IHostApplicationBuilder AddConfiguration<T>(this IHostApplicationBuilder builder, string? name = null)
         where T : class
     {
-        return builder.Services.AddConfiguration<T>(builder.Configuration, name);
+        builder.Services.AddConfiguration<T>(builder.Configuration, name);
+        return builder;
     }
 
-    public static IServiceCollection AddConfiguration(
+    public static IHostApplicationBuilder AddConfiguration(
         this IHostApplicationBuilder builder,
         Type type,
         string? name = null
     )
     {
-        return builder.Services.AddConfiguration(type, builder.Configuration, name);
+        builder.Services.AddConfiguration(type, builder.Configuration, name);
+        return builder;
     }
 
     public static IServiceCollection AddConfiguration<T>(

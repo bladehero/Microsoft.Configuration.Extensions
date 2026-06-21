@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
 namespace Microsoft.Configuration.Extensions.Tests;
@@ -91,6 +92,100 @@ public sealed class ConfigurationExtensionsTests
     }
 
     [Fact]
+    public void AddConfiguration_WhenHostBuilderWithTypeFromGenericArgument_ShouldProperlyAddConfiguration()
+    {
+        // Arrange
+        var builder = CreateHostApplicationBuilder();
+
+        // Act
+        var actual = builder
+            .AddConfiguration<SomeConfiguration>()
+            .Services.BuildServiceProvider()
+            .GetRequiredService<IOptions<SomeConfiguration>>()
+            .Value;
+
+        // Assert
+        actual.Should().BeEquivalentTo(ConfigurationShape);
+    }
+
+    [Fact]
+    public void AddConfiguration_WhenHostBuilderWithTypeFromGenericArgumentWithCustomSectionName_ShouldProperlyAddConfiguration()
+    {
+        // Arrange
+        var builder = CreateHostApplicationBuilder();
+
+        // Act
+        var actual = builder
+            .AddConfiguration<SomeConfiguration>(SectionName)
+            .Services.BuildServiceProvider()
+            .GetRequiredService<IOptions<SomeConfiguration>>()
+            .Value;
+
+        // Assert
+        actual.Should().BeEquivalentTo(ConfigurationShape);
+    }
+
+    [Fact]
+    public void AddConfiguration_WhenHostBuilderWithTypeIsMethodArgument_ShouldProperlyAddConfiguration()
+    {
+        // Arrange
+        var builder = CreateHostApplicationBuilder();
+
+        // Act
+        var actual = builder
+            .AddConfiguration(typeof(SomeConfiguration))
+            .Services.BuildServiceProvider()
+            .GetRequiredService<IOptions<SomeConfiguration>>()
+            .Value;
+
+        // Assert
+        actual.Should().BeEquivalentTo(ConfigurationShape);
+    }
+
+    [Fact]
+    public void AddConfiguration_WhenHostBuilderWithTypeIsMethodArgumentWithCustomSectionName_ShouldProperlyAddConfiguration()
+    {
+        // Arrange
+        var builder = CreateHostApplicationBuilder();
+
+        // Act
+        var actual = builder
+            .AddConfiguration(typeof(SomeConfiguration), SectionName)
+            .Services.BuildServiceProvider()
+            .GetRequiredService<IOptions<SomeConfiguration>>()
+            .Value;
+
+        // Assert
+        actual.Should().BeEquivalentTo(ConfigurationShape);
+    }
+
+    [Fact]
+    public void AddConfiguration_WhenHostBuilderWithTypeFromGenericArgument_ShouldReturnSameBuilder()
+    {
+        // Arrange
+        var builder = CreateHostApplicationBuilder();
+
+        // Act
+        var actual = builder.AddConfiguration<SomeConfiguration>();
+
+        // Assert
+        actual.Should().BeSameAs(builder);
+    }
+
+    [Fact]
+    public void AddConfiguration_WhenHostBuilderWithTypeIsMethodArgument_ShouldReturnSameBuilder()
+    {
+        // Arrange
+        var builder = CreateHostApplicationBuilder();
+
+        // Act
+        var actual = builder.AddConfiguration(typeof(SomeConfiguration));
+
+        // Assert
+        actual.Should().BeSameAs(builder);
+    }
+
+    [Fact]
     public void GetSectionAs_WhenNoSectionNameProvided_ShouldReturnByTypeName()
     {
         // Act
@@ -133,6 +228,13 @@ public sealed class ConfigurationExtensionsTests
 
         // Assert
         actual.Should().BeEquivalentTo(FirstNestedItem);
+    }
+
+    private static IHostApplicationBuilder CreateHostApplicationBuilder()
+    {
+        var builder = Host.CreateEmptyApplicationBuilder(settings: null);
+        builder.Configuration.AddInMemoryCollection(InMemorySettings);
+        return builder;
     }
 
     [SuppressMessage("ReSharper", "UnusedMember.Local")]
