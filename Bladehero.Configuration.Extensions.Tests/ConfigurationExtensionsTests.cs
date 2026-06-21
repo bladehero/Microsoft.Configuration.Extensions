@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 
-namespace Microsoft.Configuration.Extensions.Tests;
+namespace Bladehero.Configuration.Extensions.Tests;
 
 public sealed class ConfigurationExtensionsTests
 {
