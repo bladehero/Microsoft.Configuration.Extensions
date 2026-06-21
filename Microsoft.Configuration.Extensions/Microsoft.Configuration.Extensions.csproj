@@ -7,7 +7,7 @@
         <PackageId>Bladehero.Configuration.Extensions</PackageId>
         <Authors>bladehero</Authors>
         <PackageDescription>Custom Configuration Extensions</PackageDescription>
-        <RepositoryUrl>https://github.com/bladehero/Microsoft.Configuration.Extensions</RepositoryUrl>
+        <RepositoryUrl>https://github.com/bladehero/Bladehero.Configuration.Extensions</RepositoryUrl>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
