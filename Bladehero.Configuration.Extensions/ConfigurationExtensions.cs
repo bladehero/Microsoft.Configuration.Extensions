@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Microsoft.Configuration.Extensions;
+namespace Bladehero.Configuration.Extensions;
 
 public static class ConfigurationExtensions
 {

@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Configuration.Extensions", "Microsoft.Configuration.Extensions\Microsoft.Configuration.Extensions.csproj", "{D515EB5D-AD39-4398-BFB6-C8FAE458B4F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bladehero.Configuration.Extensions", "Bladehero.Configuration.Extensions\Bladehero.Configuration.Extensions.csproj", "{D515EB5D-AD39-4398-BFB6-C8FAE458B4F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Configuration.Extensions.Tests", "Microsoft.Configuration.Extensions.Tests\Microsoft.Configuration.Extensions.Tests.csproj", "{45211E72-BB6C-4A59-B3E7-90CC3F1255E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bladehero.Configuration.Extensions.Tests", "Bladehero.Configuration.Extensions.Tests\Bladehero.Configuration.Extensions.Tests.csproj", "{45211E72-BB6C-4A59-B3E7-90CC3F1255E2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

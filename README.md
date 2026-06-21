@@ -1,4 +1,12 @@
-# Microsoft.Configuration.Extensions
+# Bladehero.Configuration.Extensions
+
+[![NuGet](https://img.shields.io/nuget/v/Bladehero.Configuration.Extensions.svg)](https://www.nuget.org/packages/Bladehero.Configuration.Extensions/)
+
+```sh
+dotnet add package Bladehero.Configuration.Extensions
+```
+
+> Namespace: `Bladehero.Configuration.Extensions` (`using Bladehero.Configuration.Extensions;`).
 
 This package allows you to have in `appsettings.json`:
 ```json
