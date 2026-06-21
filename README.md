@@ -6,7 +6,7 @@
 dotnet add package Bladehero.Configuration.Extensions
 ```
 
-> The package ID is `Bladehero.Configuration.Extensions`; the namespace remains `Microsoft.Configuration.Extensions` (`using Microsoft.Configuration.Extensions;`).
+> Namespace: `Bladehero.Configuration.Extensions` (`using Bladehero.Configuration.Extensions;`).
 
 This package allows you to have in `appsettings.json`:
 ```json
